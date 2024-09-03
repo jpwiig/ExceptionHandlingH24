@@ -27,7 +27,7 @@ public class Main {
 
     public static void NumernicError() {
         int aNumber = 88;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 101; i++) {
             aNumber += -1;
             System.out.print(aNumber + " ");
             if (aNumber <= 0) throw new NumberFormatException("too low numbers y'all");
