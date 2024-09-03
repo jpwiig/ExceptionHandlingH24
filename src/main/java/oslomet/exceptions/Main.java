@@ -1,5 +1,8 @@
 package oslomet.exceptions;
 
+import javax.swing.*;
+import java.text.MessageFormat;
+
 public class Main {
     public static void main(String[] args) {
 //we do everything in the main method
@@ -10,10 +13,15 @@ public class Main {
         //TODO: input during the demo
         //I have done some OOP magic
         try {
-            NumernicError();
-            StringError();
-            unhandledSpecialError();
+          //  NumernicError(); //The code for theese are implemented in the static methods, if you want to see how they work :D
+            //StringError();
+      //      unhandledSpecialError();
+WeAreThrowingStuff("ananas");
+            //TODO: DEMO
+            //In this demo we will create a new static method that throws a exception when somthing wierd happends
         } catch (StringIndexOutOfBoundsException e) {
+
+            //TODO: in the demo we will explore different ways to print out the Error message
             System.out.println("\n" + e.getMessage());
         } catch (NumberFormatException e) {
             System.out.println("\n" + e.getMessage());
@@ -49,5 +57,17 @@ public class Main {
         if (!aBoolean) {
             throw new UnsupportedOperationException("!false, its funny because its true");
         }
+    }
+
+    public static void WeAreThrowingStuff(String in){
+        String arr[]={"OsloMet", "Java", "Norge", "Pizza"};
+        //we will check if the word are inside the array and if it is not we will throw the error away
+        //Exception types:https://www.geeksforgeeks.org/exceptions-in-java/
+        //first: We will loop through the array, if you dont know what is happending, dont worry, youll know soon
+
+        //then check what words is inside the array, maybe a if test?
+
+        //if not, we will throw a
+        throw new UnsupportedOperationException("Not implemented yet!");
     }
 }
