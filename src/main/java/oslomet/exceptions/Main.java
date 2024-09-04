@@ -9,14 +9,22 @@ public class Main {
         //A string variable
 
         //a number variable
-
+/*
+   Use:
+   NumernicError() -> throws a NumberFormatException
+   StringError() -> Throws a StringIndexOutOfBoundsException
+   unnhandledSpecialError() -> Throws a UnhandledExceptionError
+   weAreThrowingStuff() -> the
+  */
         //TODO: input during the demo
         //I have done some OOP magic
         try {
-          //  NumernicError(); //The code for theese are implemented in the static methods, if you want to see how they work :D
+
+            //NumernicError(); //The code for theese are implemented in the static methods, if you want to see how they work :D
             //StringError();
-      //      unhandledSpecialError();
-WeAreThrowingStuff("ananas");
+            //unhandledSpecialError();
+            String input = JOptionPane.showInputDialog("Skriv inn ett Ord: ");
+            WeAreThrowingStuff(input); // <-- Vi live koder denne!
             //TODO: DEMO
             //In this demo we will create a new static method that throws a exception when somthing wierd happends
         } catch (StringIndexOutOfBoundsException e) {
@@ -24,10 +32,13 @@ WeAreThrowingStuff("ananas");
             //TODO: in the demo we will explore different ways to print out the Error message
             System.out.println("\n" + e.getMessage());
         } catch (NumberFormatException e) {
+            System.out.println("\nTall Feilmelding!");
             System.out.println("\n" + e.getMessage());
         } catch (UnsupportedOperationException unnsupported_err) {
             System.out.println("\n" + unnsupported_err.getMessage());
 
+        } catch (NullPointerException feil) {
+            System.out.println(feil.getMessage());
         }
         ;
         //TODO: here we will create a try catch
@@ -38,7 +49,7 @@ WeAreThrowingStuff("ananas");
         for (int i = 0; i < 101; i++) {
             aNumber += -1;
             System.out.print(aNumber + " ");
-            if (aNumber <= 0) throw new NumberFormatException("too low numbers y'all");
+            if (aNumber <= 0) throw new NumberFormatException("For lite tall!");
 
         }
     }
@@ -59,15 +70,19 @@ WeAreThrowingStuff("ananas");
         }
     }
 
-    public static void WeAreThrowingStuff(String in){
-        String arr[]={"OsloMet", "Java", "Norge", "Pizza"};
+    public static void WeAreThrowingStuff(String in) {
+        String arr[] = {"OsloMet", "Java", "Norge", "Pizza"};
         //we will check if the word are inside the array and if it is not we will throw the error away
         //Exception types:https://www.geeksforgeeks.org/exceptions-in-java/
         //first: We will loop through the array, if you dont know what is happending, dont worry, youll know soon
-
-        //then check what words is inside the array, maybe a if test?
-
-        //if not, we will throw a
-        throw new UnsupportedOperationException("Not implemented yet!");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(in) ) {
+                JOptionPane.showMessageDialog(null, MessageFormat.format("Ordet {0} er i listen!", in));
+            } else {
+                System.out.println("Not in LIST!");
+                throw new NullPointerException("Ordet er ikke listen :(");
+            }
+        }
+        // throw new UnsupportedOperationException("Not implemented yet!");
     }
 }
